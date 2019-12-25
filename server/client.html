@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socketmost</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <nav class="navbar is-fixed-bottom">
+      <form action="">
+        <div class="field has-addons">
+            <div class="control is-expanded">
+              <input autocomplete="off" id="m" class="input" type="text" placeholder="Message...">
+            </div>
+            <div class="control is-expanded">
+              <button class="button is-info">
+                Send
+              </button>
+            </div>
+          </div>
+      </form>
+    </nav>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      $(function() {
+        var socket = io();
+        $("form").submit(function(e) {
+          e.preventDefault(); // prevents page reloading
+          socket.emit("chat message", $("#m").val());
+          $("#m").val("");
+          return false;
+        });
+        socket.on("chat message", function(event) {
+          console.log("test");
+          $("#messages").append(
+            $("<li>").text(`${event.author}: ${event.msg}`)
+          );
+        });
+      });
+    </script>
+  </body>
+</html>

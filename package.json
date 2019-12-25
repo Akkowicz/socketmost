@@ -1,0 +1,23 @@
+{
+  "name": "socketmost",
+  "version": "1.0.0",
+  "description": "socketmost",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akkowicz/socketmost.git"
+  },
+  "author": "Mateusz Przybyłowicz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Akkowicz/socketmost/issues"
+  },
+  "homepage": "https://github.com/Akkowicz/socketmost#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}
